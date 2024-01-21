@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34004.107
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iPlato", "iPlato\iPlato.csproj", "{AC7EB43C-17DF-486C-B1C2-95EC8DD1975B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iPlato", "iPlato\iPlato.csproj", "{AC7EB43C-17DF-486C-B1C2-95EC8DD1975B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iPlato.Tests", "iPlato.Tests\iPlato.Tests.csproj", "{9A1153A9-0A24-4349-B80E-2D61848BB2DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iPlato.Tests", "iPlato.Tests\iPlato.Tests.csproj", "{9A1153A9-0A24-4349-B80E-2D61848BB2DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
