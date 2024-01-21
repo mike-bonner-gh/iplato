@@ -50,7 +50,7 @@
                 </StackPanel>
             </Grid>
 
-            <Border Grid.Column="1" Style="{StaticResource StandardBorderStyle}">
+            <Border Grid.Column="1" Style="{StaticResource StandardBorderStyle}" Padding="5">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />

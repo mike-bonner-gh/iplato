@@ -17,6 +17,8 @@
         </Style>
         <Style x:Key="StandardTextInputStyle" TargetType="{x:Type TextBox}">
             <Setter Property="Margin" Value="5,3,0,3" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
             <Style.Triggers>
                 <Trigger Property="IsFocused" Value="True">
                     <Setter Property="Background" Value="#CCCCCC" />
