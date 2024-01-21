@@ -92,7 +92,7 @@ namespace iPlato.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/iPlato;component/views/personeditorview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/iPlato;V1.0.0.0;component/views/personeditorview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\PersonEditorView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
