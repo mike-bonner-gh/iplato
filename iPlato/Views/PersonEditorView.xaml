@@ -1,0 +1,75 @@
+﻿<Page x:Class="iPlato.Views.PersonEditor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PersonEditor">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Background="{StaticResource StandardBackgroundColour}">
+            <TextBlock Text="Person Editor" Style="{StaticResource HeaderTextStyle}"  />
+        </Border>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="36" />
+                </Grid.RowDefinitions>
+
+                <Border Style="{StaticResource StandardBorderStyle}">
+                    <ListView x:Name="PersonList" Style="{StaticResource StandardListViewStyle}" ItemsSource="{Binding PersonList}" SelectedItem="{Binding SelectedPerson}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding Name}" Style="{StaticResource StandardTextStyle}" />
+                                    <TextBlock Grid.Column="1" Text="{Binding DateOfBirth}" Style="{StaticResource StandardTextStyle}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Border>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="btnLoad" Style="{StaticResource StandardButton}" Content="Load" Command="{Binding LoadPeopleCommand}" />
+                    <Button x:Name="btnSave" Style="{StaticResource StandardButton}" Content="Save" Command="{Binding SavePeopleCommand}" />
+                    <Button x:Name="btnAdd" Style="{StaticResource StandardButton}" Command="{Binding AddPersonCommand}" Content="Add" />
+                    <Button x:Name="btnDelete" Style="{StaticResource StandardButton}" Command="{Binding DeletePersonCommand}" CommandParameter="{Binding ElementName=PersonList, Path=SelectedItem}"  Content="Delete" />
+                </StackPanel>
+            </Grid>
+
+            <Border Grid.Column="1" Style="{StaticResource StandardBorderStyle}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="34" />
+                        <RowDefinition Height="34" />
+                        <RowDefinition Height="34" />
+                        <RowDefinition Height="36" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Name:" Style="{StaticResource StandardTextStyle}" />
+                    <TextBlock Text="Date of Birth:" Grid.Row="1" Style="{StaticResource StandardTextStyle}" />
+                    <TextBlock Text="Profession:" Grid.Row="2" Style="{StaticResource StandardTextStyle}" />
+                    <TextBox Grid.Column="1" Style="{StaticResource FocusableStandardTextInputStyle}" Text="{Binding SelectedItem.Name, ElementName=PersonList}" />
+                    <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource StandardTextInputStyle}" Text="{Binding SelectedItem.DateOfBirth, ElementName=PersonList}" />
+                    <TextBox Grid.Column="1" Grid.Row="2" Style="{StaticResource StandardTextInputStyle}" Text="{Binding SelectedItem.Profession, ElementName=PersonList}" />
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>
