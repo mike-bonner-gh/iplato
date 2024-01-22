@@ -9,24 +9,34 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="40" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <Border Background="{StaticResource StandardBackgroundColour}">
             <TextBlock Text="Person Editor" Style="{StaticResource HeaderTextStyle}"  />
         </Border>
-        <Grid Grid.Row="1">
+
+        <Border Background="{StaticResource StandardBackgroundColour}" Grid.Row="1">
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Sample Data" Style="{StaticResource StandardTextStyle}" Margin="0,0,10,0" />
+                <Button x:Name="btnLoad" Style="{StaticResource StandardButton}" Content="Load" Command="{Binding LoadPeopleCommand}" />
+                <Button x:Name="btnSave" Style="{StaticResource StandardButton}" Content="Save" Command="{Binding SavePeopleCommand}" />
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="36" />
-                </Grid.RowDefinitions>
-
                 <Border Style="{StaticResource StandardBorderStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="36" />
+                    </Grid.RowDefinitions>
+
                     <ListView x:Name="PersonList" Style="{StaticResource StandardListViewStyle}" ItemsSource="{Binding PersonList}" SelectedItem="{Binding SelectedPerson}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -41,14 +51,39 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                </Border>
-                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:Name="btnLoad" Style="{StaticResource StandardButton}" Content="Load" Command="{Binding LoadPeopleCommand}" />
-                    <Button x:Name="btnSave" Style="{StaticResource StandardButton}" Content="Save" Command="{Binding SavePeopleCommand}" />
-                    <Button x:Name="btnAdd" Style="{StaticResource StandardButton}" Command="{Binding AddPersonCommand}" Content="Add" />
-                    <Button x:Name="btnDelete" Style="{StaticResource StandardButton}" Command="{Binding DeletePersonCommand}" CommandParameter="{Binding ElementName=PersonList, Path=SelectedItem}"  Content="Delete" />
-                </StackPanel>
-            </Grid>
+
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button x:Name="btnAdd" Style="{StaticResource StandardButton}" Command="{Binding AddPersonCommand}">
+                            <Button.Content>
+                                <Path Data="M12.126984,0L19.872009,0 19.872009,12.128 32,12.128 32,19.872999 19.872009,19.872999 19.872009,31.999 12.126984,31.999 12.126984,19.872999 0,19.872999 0,12.128 12.126984,12.128z" Stretch="Uniform" Fill="#FF1D1D1D" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="0" />
+                                                <ScaleTransform ScaleX="0.8" ScaleY="0.8" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Button.Content>
+                        </Button>
+                        <Button x:Name="btnDelete" Style="{StaticResource StandardButton}" Command="{Binding DeletePersonCommand}" CommandParameter="{Binding ElementName=PersonList, Path=SelectedItem}">
+                            <Button.Content>
+                                <Path Data="M15.000001,8.0000272L17,8.0000272 17,27.000028 15.000001,27.000028z M11.000001,8.0000272L13.000001,8.0000272 13.000001,27.000028 11.000001,27.000028z M7.0000005,8.0000272L9.000001,8.0000272 9.000001,27.000028 7.0000005,27.000028z M3.0790101,5.0000274L4.9959994,29.922999 19.000006,30.000026 20.918949,5.0000274z M13.771989,1.9959999L10.198989,2.0000001C10.158989,2.025,9.9989892,2.241,9.9989892,2.6000001L9.9989892,3.0000258 13.998989,3.0000258 13.998989,2.6000001C13.998989,2.241,13.838988,2.025,13.771989,1.9959999z M10.198989,0L13.798988,0C15.031989,0,15.998989,1.142,15.998989,2.6000001L15.998989,3.0000258 23.07898,3.0000258 24,3.0000272 24,5.0000274 22.925121,5.0000274 20.995976,30.076991C20.999027,31.102992,20.100956,32.000026,18.999029,32.000026L4.9990512,32.000026C3.8960255,32.000026,2.9990543,31.102992,2.999054,30.000026L1.073059,5.0000274 0,5.0000274 0,3.0000272 0.91897895,3.0000272 7.9989887,3.0000258 7.9989887,2.6000001C7.9989887,1.142,8.9659892,0,10.198989,0z" Stretch="Uniform" Fill="#FF1D1D1D" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="0" />
+                                                <ScaleTransform ScaleX="0.8" ScaleY="0.8" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
 
             <Border Grid.Column="1" Style="{StaticResource StandardBorderStyle}" Padding="5">
                 <Grid>
